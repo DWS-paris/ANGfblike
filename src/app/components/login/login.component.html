@@ -1,3 +1,31 @@
-<p>
-  login works!
-</p>
+<header>
+    <div>
+        <img src="app/img/logoFB.jpg" alt="Logo Facebook">
+
+        <!--
+          Binding de l'évènement submit pour appeler la fonction formSubmit()
+        -->
+        <form (submit)="formSubmit(userInfos)"  action="connexion.php" method="POST">
+            <section>
+                <label for="userName">Adresse e-mail ou mobile	</label>
+
+                <!-- Utilisation du ngModel sur un input -->
+                <input [(ngModel)]="userInfos.login"  type="text" name="userName" placeholder="Votre login">
+
+            </section>
+            <section>
+                <label for="userPass">Mot de passe</label>
+
+                <!-- Utilisation du ngModel sur un input -->
+                <input [(ngModel)]="userInfos.password" type="password" name="userPass" placeholder="Votre mot de passe">
+
+                <a href="#">Informations de compte oubliées ?</a>
+            </section>
+            <section>
+                <input type="submit" value="Connexion">
+            </section>
+        </form>
+
+
+    </div>
+</header>
