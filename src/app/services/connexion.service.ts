@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 // Importer la class du Router
-import { Router } from '@angular/router';
+import { Router } from '@angular/router'; 
 
 @Injectable()
 export class ConnexionService {
@@ -19,7 +19,11 @@ export class ConnexionService {
       console.log('Vous êtes connecté(e)')
 
       // Naviguer vers le vue connected
-      this.router.navigateByUrl('/connected')
+      this.router.navigateByUrl('/connected');
+
+      // Générer des cookies de connexion (ATTENTION : pas du tout sécurisé !!!)
+      document.cookie = "cookieLogin=" + infos.login;
+      document.cookie = "cookiePassword=" + infos.password;
 
     } else{
       console.log('Accès refusé...')
